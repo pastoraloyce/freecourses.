@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elimu-Tech | Orange & Blue Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RANGI NA MISINGI --- */
+        :root {
+            --blue-dark: #1e3a8a;      /* Rangi mama ya Blue */
+            --blue-light: #3b82f6;
+            --orange-main: #f97316;    /* Rangi mama ya Orange */
+            --orange-hover: #ea580c;
+            --nyeupe: #ffffff;
+            --kijivu: #f1f5f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--kijivu);
+            color: #334155;
+        }
+
+        /* --- NAVBAR --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--blue-dark); /* Msingi wa Blue */
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            border-bottom: 3px solid var(--orange-main); /* Mstari wa Orange chini */
+        }
+
+        header.scrolled {
+            padding: 12px 8%;
+            background-color: rgba(30, 58, 138, 0.98);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            color: var(--nyeupe);
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--orange-main); /* Neno moja liwe Orange */
+        }
+
+        /* Menu Links */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--nyeupe);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange-main); /* Hover inakuwa Orange */
+        }
+
+        /* Dropdown */
+        .dropdown { position: relative; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: var(--nyeupe);
+            min-width: 200px;
+            top: 100%;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            border-top: 3px solid var(--orange-main);
+        }
+
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-content a { color: var(--blue-dark); padding: 12px 20px; display: block; }
+        .dropdown-content a:hover { background-color: var(--kijivu); color: var(--orange-main); }
+
+        /* Kitufe cha Orange (Call to Action) */
+        .btn-orange {
+            background-color: var(--orange-main);
+            color: white !important;
+            padding: 10px 22px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: 0.3s;
+            border: none;
+        }
+
+        .btn-orange:hover {
+            background-color: var(--orange-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+        }
+
+        /* --- MODALS --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 0;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 550px;
+            overflow: hidden;
+            animation: popIn 0.3s ease;
+        }
+
+        .modal-header {
+            background-color: var(--blue-dark);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 4px solid var(--orange-main);
+        }
+
+        .modal-body { padding: 30px; }
+
+        @keyframes popIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Responsive Mobile */
+        .burger { display: none; cursor: pointer; color: white; font-size: 28px; }
+
+        @media (max-width: 968px) {
+            .nav-links {
+                position: fixed; right: -100%; top: 70px;
+                background-color: var(--blue-dark);
+                flex-direction: column; width: 100%; height: 100vh;
+                padding-top: 40px; transition: 0.4s;
+            }
+            .nav-links.active { right: 0; }
+            .burger { display: block; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="navbar">
+        <a href="#" class="logo">PASTOR ALOYCE<span>FREE COURSES</span></a>
+        
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="#">Home</a></li>
+            <li class="dropdown">
+                <a>Jiunge na kozi ▾</a>
+                <div class="dropdown-content">
+                    <a href="#">Uwezi wa Mwanamke</a>
+                    <a href="#">Mwanaume kichwa cha familia</a>
+                    <a href="#">Mafunzo ya Nidhamu</a>
+                    <a href="#">Baba wa Kiroho</a>
+                </div>
+            </li>
+            <li><a onclick="openModal('aboutModal')">Kuhusu Sisi</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a onclick="openModal('contactModal')">Mawasiliano</a></li>
+            <li><a href="#" class="btn-orange">Ingia Portal</a></li>
+        </ul>
+
+        <div class="burger" onclick="toggleMenu()">☰</div>
+    </header>
+
+    <section style="padding: 160px 8%; text-align: center;">
+        <h1 style="font-size: 2.5rem; color: var(--blue-dark);">Karibu ujifunze kozi mbalimbali bure</h1>
+        <p style="font-size: 1.1rem; margin-top: 15px;">Kwa Neema ya Mungu kozi zote zinatolewa bure na naomba nikukaribishe ujifunze kupitia kozi hizi.</p>
+    </section>
+
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Kuhusu Elimu-Tech</h3>
+                <span style="cursor:pointer" onclick="closeModal('aboutModal')">✖</span>
+            </div>
+            <div class="modal-body">
+                <p>Sisi ni wadau wa maendeleo ya kidijitali nchini Tanzania. Tunajikita katika kutoa maudhui bora yanayozingatia nidhamu na utaratibu (Discipline).</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Mawasiliano</h3>
+                <span style="cursor:pointer" onclick="closeModal('contactModal')">✖</span>
+            </div>
+            <div class="modal-body">
+                <p><strong>📞 Simu:</strong> +255 757 344 860</p>
+                <p><strong>📧 Email:</strong> aloyce0202@gmail.com</p>
+                <p style="margin-top:20px; color: var(--orange-main); font-weight:bold;">Tupo Mwanza, Tanzania.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Scroll Effect
+        window.onscroll = function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        };
+
+        // Mobile Menu
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('active');
+        }
+
+        // Modal Functions
+        function openModal(id) {
+            document.getElementById(id).style.display = "block";
+            document.getElementById('nav-menu').classList.remove('active');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masomo | Pastor Aloyce</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --blue-dark: #1e3a8a;
+            --orange-main: #f97316;
+            --nyeupe: #ffffff;
+            --kijivu-light: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--kijivu-light);
+            padding-top: 100px; /* Nafasi kwa ajili ya navbar yako */
+        }
+
+        /* --- KICHWA CHA HABARI --- */
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--blue-dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--orange-main);
+            border-radius: 2px;
+        }
+
+        /* --- LAYOUT YA KADI ZA KOZI --- */
+        .courses-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            background: var(--nyeupe);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .course-image {
+            width: 100%;
+            height: 200px;
+            background-color: var(--blue-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .course-info {
+            padding: 25px;
+        }
+
+        .course-info h3 {
+            color: var(--blue-dark);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .course-info p {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Kitufe cha kufungua moduli */
+        .btn-view-modules {
+            display: inline-block;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--orange-main);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-view-modules:hover {
+            background-color: #ea580c;
+        }
+
+        /* --- MODULI DROPDOWN (Accordion Effect) --- */
+        .modules-list {
+            display: none; /* Imefichwa mwanzoni */
+            background: #fff;
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            max-height: 300px;
+            overflow-y: auto; /* Inaruhusu scroll kama moduli ni nyingi */
+        }
+
+        .module-item {
+            display: block;
+            padding: 10px 15px;
+            color: var(--blue-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #f1f5f9;
+            transition: 0.2s;
+        }
+
+        .module-item:hover {
+            background-color: #f1f5f9;
+            color: var(--orange-main);
+            padding-left: 20px;
+        }
+
+        .show {
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="section-title">
+        <h2>Kozi Mbalimbali</h2>
+    </div>
+
+    <div class="courses-container">
+        
+        <div class="course-card">
+            <div class="course-image">
+                👩‍💼 </div>
+            <div class="course-info">
+                <h3>Uwezo wa Mwanamke</h3>
+                <p>Jifunze nafasi, thamani, na uwezo mkubwa aliobeba mwanamke katika familia na jamii kwa misingi ya kiroho.</p>
+                
+                <div class="btn-view-modules" onclick="toggleModules()">Bonyeza kuona Moduli (15)</div>
+                
+                <div class="modules-list" id="modulesMenu">
+                    <a href="#" class="module-item">Moduli 01: Utambulisho wa Mwanamke</a>
+                    <a href="#" class="module-item">Moduli 02: Nguvu ya Maombi</a>
+                    <a href="#" class="module-item">Moduli 03: Mwanamke na Uchumi</a>
+                    <a href="#" class="module-item">Moduli 04: Malezi ya Watoto</a>
+                    <a href="#" class="module-item">Moduli 05: Hekima katika Ndoa</a>
+                    <a href="#" class="module-item">Moduli 06: Mawasiliano Bora</a>
+                    <a href="#" class="module-item">Moduli 07: Kujitunza na Afya</a>
+                    <a href="#" class="module-item">Moduli 08: Kipaji na Huduma</a>
+                    <a href="#" class="module-item">Moduli 09: Nidhamu ya Kazi</a>
+                    <a href="#" class="module-item">Moduli 10: Uhusiano na Jamii</a>
+                    <a href="#" class="module-item">Moduli 11: Kushinda Majaribu</a>
+                    <a href="#" class="module-item">Moduli 12: Uongozi wa Mwanamke</a>
+                    <a href="#" class="module-item">Moduli 13: Kusimamia Maono</a>
+                    <a href="#" class="module-item">Moduli 14: Amani ya Ndani</a>
+                    <a href="#" class="module-item">Moduli 15: Hitimisho na Vyeti</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <div class="course-image">
+                👨‍👩‍👧‍👦
+            </div>
+            <div class="course-info">
+                <h3>Mwanaume Kichwa cha Familia</h3>
+                <p>Mwongozo wa mwanaume katika kusimamia familia, kutoa mwelekeo na kuwa kiongozi bora wa mfano.</p>
+                <div class="btn-view-modules">Inakuja Hivi Karibuni...</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleModules() {
+            var menu = document.getElementById("modulesMenu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masomo | Pastor Aloyce</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --blue-dark: #1e3a8a;
+            --orange-main: #f97316;
+            --nyeupe: #ffffff;
+            --kijivu-light: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--kijivu-light);
+            padding-top: 100px; /* Nafasi kwa ajili ya navbar yako */
+        }
+
+        /* --- KICHWA CHA HABARI --- */
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--blue-dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--orange-main);
+            border-radius: 2px;
+        }
+
+        /* --- LAYOUT YA KADI ZA KOZI --- */
+        .courses-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            background: var(--nyeupe);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .course-image {
+            width: 100%;
+            height: 200px;
+            background-color: var(--blue-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .course-info {
+            padding: 25px;
+        }
+
+        .course-info h3 {
+            color: var(--blue-dark);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .course-info p {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Kitufe cha kufungua moduli */
+        .btn-view-modules {
+            display: inline-block;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--orange-main);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-view-modules:hover {
+            background-color: #ea580c;
+        }
+
+        /* --- MODULI DROPDOWN (Accordion Effect) --- */
+        .modules-list {
+            display: none; /* Imefichwa mwanzoni */
+            background: #fff;
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            max-height: 300px;
+            overflow-y: auto; /* Inaruhusu scroll kama moduli ni nyingi */
+        }
+
+        .module-item {
+            display: block;
+            padding: 10px 15px;
+            color: var(--blue-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #f1f5f9;
+            transition: 0.2s;
+        }
+
+        .module-item:hover {
+            background-color: #f1f5f9;
+            color: var(--orange-main);
+            padding-left: 20px;
+        }
+
+        .show {
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="section-title">
+        <h2>Kozi Mbalimbali</h2>
+    </div>
+
+    <div class="courses-container">
+        
+        <div class="course-card">
+            <div class="course-image">
+                👩‍💼 </div>
+            <div class="course-info">
+                <h3>Uwezo wa Mwanamke</h3>
+                <p>Jifunze nafasi, thamani, na uwezo mkubwa aliobeba mwanamke katika familia na jamii kwa misingi ya kiroho.</p>
+                
+                <div class="btn-view-modules" onclick="toggleModules()">Bonyeza kuona Moduli (15)</div>
+                
+                <div class="modules-list" id="modulesMenu">
+                    <a href="#" class="module-item">Moduli 01: Utambulisho wa Mwanamke</a>
+                    <a href="#" class="module-item">Moduli 02: Nguvu ya Maombi</a>
+                    <a href="#" class="module-item">Moduli 03: Mwanamke na Uchumi</a>
+                    <a href="#" class="module-item">Moduli 04: Malezi ya Watoto</a>
+                    <a href="#" class="module-item">Moduli 05: Hekima katika Ndoa</a>
+                    <a href="#" class="module-item">Moduli 06: Mawasiliano Bora</a>
+                    <a href="#" class="module-item">Moduli 07: Kujitunza na Afya</a>
+                    <a href="#" class="module-item">Moduli 08: Kipaji na Huduma</a>
+                    <a href="#" class="module-item">Moduli 09: Nidhamu ya Kazi</a>
+                    <a href="#" class="module-item">Moduli 10: Uhusiano na Jamii</a>
+                    <a href="#" class="module-item">Moduli 11: Kushinda Majaribu</a>
+                    <a href="#" class="module-item">Moduli 12: Uongozi wa Mwanamke</a>
+                    <a href="#" class="module-item">Moduli 13: Kusimamia Maono</a>
+                    <a href="#" class="module-item">Moduli 14: Amani ya Ndani</a>
+                    <a href="#" class="module-item">Moduli 15: Hitimisho na Vyeti</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <div class="course-image">
+                👨‍👩‍👧‍👦
+            </div>
+            <div class="course-info">
+                <h3>Mwanaume Kichwa cha Familia</h3>
+                <p>Mwongozo wa mwanaume katika kusimamia familia, kutoa mwelekeo na kuwa kiongozi bora wa mfano.</p>
+                <div class="btn-view-modules">Inakuja Hivi Karibuni...</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleModules() {
+            var menu = document.getElementById("modulesMenu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
