@@ -688,3 +688,214 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-orange: #FF8C00;
+            --dark-gray: #1a1c1e;
+            --light-bg: #f4f4f9;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            margin: 0;
+            color: #333;
+        }
+
+        /* Header Section */
+        .course-header {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1491333078588-55b6733c7de6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .course-header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: var(--primary-orange);
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: -50px auto 60px;
+            padding: 0 20px;
+        }
+
+        /* Module Card */
+        .module-card {
+            background: var(--white);
+            margin-bottom: 20px;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-left: 6px solid var(--primary-orange);
+            transition: transform 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: scale(1.02);
+        }
+
+        .module-info {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .module-info h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+        }
+
+        .module-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Button ya Link */
+        .btn-link {
+            background-color: var(--primary-orange);
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-link:hover {
+            background-color: #e67e00;
+        }
+
+        .btn-link i {
+            font-size: 1rem;
+        }
+
+        /* Special Sections */
+        .special-section {
+            background-color: #1a1c1e;
+            color: white;
+        }
+
+        .special-section h3 {
+            color: var(--primary-orange) !important;
+        }
+
+        @media (max-width: 600px) {
+            .module-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .module-info {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+            .course-header h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="course-header">
+        <h1>KOZI YA KWANZA</h1>
+        <h1>MWANAUME ANAYEJITATHMINI</h1>
+        <p>"Enyi waume, wapendeni wake zenu, kama Kristo naye alivyolipenda Kanisa, akajitoa kwa ajili yake." (Waefeso 5:25)</p>
+          <p>Pastor Aloyce</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="module-card">
+            <div class="module-info">
+                <h3>Utangulizi wa Kozi</h3>
+                <p>Anza safari yako hapa kupata maono ya jumla.</p>
+            </div>
+            <a href="https://pastoraloyce.github.io/utangulizi-wa-kozi-ya-wanaume./" target="_blank" class="btn-link">
+                Fungua Somo <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+
+        <div class="module-card">
+            <div class="module-info">
+                <h3>Moduli ya Kwanza</h3>
+                <p>Mambo ya kufanya kwa mke na familia ili kuongeza heshima.</p>
+            </div>
+            <a href="https://pastoraloyce.github.io/moduli-ya-kwanza-kozi-ya-mwanaume/" target="_blank" class="btn-link">
+                Fungua Somo <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+
+        <div class="module-card">
+            <div class="module-info">
+                <h3>Moduli ya Pili</h3>
+                <p>Viashiria vya kujua kama mkeo anakutii.</p>
+            </div>
+            <a href="https://aloyce0202-cpu.github.io/moduli-ya-pili/" target="_blank" class="btn-link">
+                Fungua Somo <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+
+        <div class="module-card">
+            <div class="module-info">
+                <h3>Moduli ya Tatu</h3>
+                <p>Maeneo makuu ya kupima utii wa mwanamke.</p>
+            </div>
+            <a href="https://aloyce0202-cpu.github.io/moduli-ya-tatu/" target="_blank" class="btn-link">
+                Fungua Somo <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+
+        <div class="module-card">
+            <div class="module-info">
+                <h3>Moduli ya Nne</h3>
+                <p>Kuishi na mwanamke mwenye nguvu kiuchumi na elimu.</p>
+            </div>
+            <a href="https://pastoraloyce.github.io/modulim-ya-nne/" target="_blank" class="btn-link">
+                Fungua Somo <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+
+        <div class="module-card special-section">
+            <div class="module-info">
+                <h3>Wito Mkuu kwa Wanaume</h3>
+                <p>Mwisho wa kozi na neno la busara kwa mashujaa.</p>
+            </div>
+            <a href="https://aloyce0202-cpu.github.io/Wito-Mkuu-wa-Mwanaumempya/" target="_blank" class="btn-link">
+                Soma Wito <i class="fas fa-crown"></i>
+            </a>
+        </div>
+
+        <div class="module-card" style="border-left-color: #333; background-color: #fffde7;">
+            <div class="module-info">
+                <h3>Mazoezi ya Moduli Zote</h3>
+                <p>Pima uelewa wako na anza kufanyia kazi ulichojifunza.</p>
+            </div>
+            <a href="https://aloyce0202-cpu.github.io/juhu/" target="_blank" class="btn-link" style="background-color: #333;">
+                Anza Zoezi <i class="fas fa-pen-nib"></i>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
