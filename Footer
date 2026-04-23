@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Msingi wa Rangi na Fonti */
+        :root {
+            --primary-orange: #FF8C00;
+            --dark-bg: #1a1a1a;
+            --text-light: #ffffff;
+            --text-gray: #b0b0b0;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 60px 0 20px 0;
+            border-top: 2px solid var(--primary-orange);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        /* Sehemu ya Kushoto - Jina la Pastor */
+        .footer-section h2 {
+            color: var(--primary-orange);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-section p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Sehemu ya Kati - Mawasiliano */
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-orange);
+        }
+
+        .contact-info {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            color: var(--primary-orange);
+            margin-right: 15px;
+            font-size: 1.1rem;
+        }
+
+        .contact-info a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-orange);
+        }
+
+        /* Sehemu ya Social Media */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-orange);
+            transform: translateY(-5px);
+        }
+
+        /* Bottom Bar */
+        .footer-bottom {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .footer-container {
+                text-align: center;
+            }
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .contact-info li {
+                justify-content: center;
+            }
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h2>Pastor Aloyce</h2>
+                <p><strong>Disciples Community Church</strong><br>Kisesa, Mwanza</p>
+                <p><em>"Kuwa Mwanafunzi wa Yesu kwa kuwafanya wengine kuwa wanafunzi wa Yesu"</em></p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Mawasiliano</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+255757344860">+255 757 344 860</a>
+                    </li>
+                    <li>
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/255757344860" target="_blank">WhatsApp Chat</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:aloyce0202@gmail.com">aloyce0202@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Tufuate</h3>
+                <p>Jiunge nasi kwenye mitandao ya kijamii kwa mafundisho zaidi.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=100071010323661" target="_blank" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@pastoraloyce" target="_blank" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <p>&copy; 2026 Disciples Community Church. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

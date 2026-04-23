@@ -702,3 +702,209 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-orange: #FF8C00;
+            --dark-bg: #1a1a1a;
+            --text-light: #ffffff;
+            --text-gray: #b0b0b0;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 60px 0 20px 0;
+            border-top: 3px solid var(--primary-orange);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        /* Sehemu ya Kushoto */
+        .footer-section h2 {
+            color: var(--primary-orange);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Sehemu za Katikati na Kulia */
+        .footer-section h3 {
+            font-size: 1.25rem;
+            margin-bottom: 25px;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-orange);
+        }
+
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-info li {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            color: var(--primary-orange);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            width: 20px; /* Inahakikisha icons zimejipanga mstari mmoja */
+        }
+
+        .contact-info a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-orange);
+            padding-left: 5px;
+        }
+
+        /* Social Media Icons */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: #2d2d2d;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-orange);
+            transform: translateY(-8px);
+            color: #fff;
+        }
+
+        /* Bottom Bar */
+        .footer-bottom {
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid #2d2d2d;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        /* Responsive Fixes */
+        @media (max-width: 768px) {
+            .footer-container {
+                text-align: center;
+            }
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .contact-info li {
+                justify-content: center;
+            }
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div style="height: 300px; background: #eee; display: grid; place-items: center;">
+        <p>Eneo la maudhui ya website yako...</p>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h2>Pastor Aloyce</h2>
+                <p><strong>Disciples Community Church</strong><br>Kisesa, Mwanza</p>
+                <p><em>"Kuwa Mwanafunzi wa Yesu kwa kuwafanya wengine kuwa wanafunzi wa Yesu"</em></p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Mawasiliano</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+255757344860" title="Piga simu sasa">+255 757 344 860</a>
+                    </li>
+                    <li>
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/255757344860" target="_blank" rel="noopener" title="Tuma ujumbe WhatsApp">Tuma Ujumbe WhatsApp</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:aloyce0202@gmail.com" title="Tuma barua pepe">aloyce0202@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Tufuate</h3>
+                <p>Jiunge nasi kupitia mitandao yetu kwa mafundisho na updates zaidi.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=100071010323661" target="_blank" rel="noopener noreferrer" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@pastoraloyce" target="_blank" rel="noopener noreferrer" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <p>&copy; 2026 Disciples Community Church. Kila Haki Immehifadhiwa.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
