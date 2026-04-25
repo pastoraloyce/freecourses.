@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="sw" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGN Makala - Pastot Aloyce</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@400;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        deepBlue: '#0f172a',
+                        slateDark: '#1e293b',
+                        softCyan: '#22d3ee',
+                        softWhite: '#f8fafc',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .font-serif { font-family: 'Merriweather', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .font-mono { font-family: 'Fira Code', monospace; }
+        .font-times { font-family: 'Times New Roman', Times, serif; }
+        .progress-bar { height: 6px; width: 0%; transition: width 0.2s ease; position: fixed; top: 0; left: 0; z-index: 100; }
+        .article-body { line-height: 1.8; transition: font-size 0.2s; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .faq-answer.open { max-height: 500px; }
+    </style>
+</head>
+<body class="bg-softWhite text-slate-900 dark:bg-deepBlue dark:text-gray-200 font-sans transition-colors duration-300">
+
+    <div class="progress-bar bg-cyan-500" id="readingBar"></div>
+
+    <nav class="sticky top-0 z-50 bg-white/90 dark:bg-slateDark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 p-4">
+        <div class="max-w-5xl mx-auto flex flex-wrap justify-between items-center gap-4">
+            <span class="font-bold text-cyan-600 dark:text-softCyan text-xl">CGN Portal</span>
+            <div class="flex items-center gap-4">
+                <select id="fontPicker" class="bg-gray-100 dark:bg-slate-800 rounded p-1 text-sm border-none">
+                    <option value="font-sans">Sans-Serif</option>
+                    <option value="font-serif">Serif</option>
+                    <option value="font-times">Times New Roman</option>
+                    <option value="font-mono">Monospace</option>
+                </select>
+                <div class="flex items-center bg-gray-100 dark:bg-slate-800 rounded px-2">
+                    <button onclick="changeTextSize(-1)" class="p-2 hover:text-cyan-500 font-bold">A-</button>
+                    <button onclick="changeTextSize(1)" class="p-2 hover:text-cyan-500 font-bold">A+</button>
+                </div>
+                <button id="darkModeBtn" class="p-2 bg-gray-200 dark:bg-slate-800 rounded-full">
+                    <span class="dark:hidden">🌙</span><span class="hidden dark:inline">☀️</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="max-w-4xl mx-auto mt-12 px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">Church Group Network (CGN): Seli Hai za Ukuaji wa Kiroho</h1>
+        <div class="flex justify-center items-center gap-4 mb-8">
+            <div class="text-left border-l-4 border-cyan-500 pl-4">
+                <p class="font-bold text-lg">Mwandishi: Pastot Aloyce</p>
+                <p class="text-sm opacity-70">Tarehe: 25 Aprili 2026</p>
+            </div>
+        </div>
+        <div class="w-full h-48 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl shadow-lg mb-12 flex items-center justify-center">
+            <p class="text-white text-2xl font-bold italic">"Chuma hunoa chuma"</p>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-6 py-4" id="articleContainer">
+        <article class="article-body">
+            
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-cyan-700 dark:text-softCyan mb-4">Church Group Network (CGN)</h2>
+                <p class="mb-4">Ni mfumo wa kikanisa unaotumia vikundi vidogo vidogo vilivyounganishwa kama seli hai za mwili ili kuleta ukuaji wa kiroho, huduma, na ushirika wa karibu miongoni mwa waumini. Badala ya kanisa kubaki tu kama kusanyiko kubwa la Jumapili, CGN inaligawanya kanisa katika "mitandao" midogo inayofikika kwa urahisi zaidi, ikiakisi maisha ya kanisa la kwanza ambalo lilidumu katika "kumega mkate nyumba kwa nyumba" (Matendo 2:46).</p>
+                <p class="mb-4">Katika mfumo huu, neno "Church" linamaanisha kuwa sisi ni mwili wa Kristo ambapo kila kiungo kina umuhimu wake kama isemavyo 1 Wakorintho 12:27, wakati "Group" inawakilisha nafasi ya ukaribu ambapo tunaweza "kuchukuliana mizigo" (Wagalatia 6:2) kwa upendo wa vitendo. Sehemu ya "Network" inaunganisha makundi yote—iwe ni yale ya ana kwa ana yanayokutana kila Jumatano saa 11:00 jioni au yale yanayokutana online saa 3:00 usiku—kuwa kitu kimoja kinachoshikamanishwa na msaada wa kila kiungo kulingana na Waefeso 4:16.</p>
+                <blockquote class="border-l-4 border-cyan-500 pl-6 my-8 italic text-xl opacity-80">
+                    "Kristo aliwaita watu kumi na mbili kwenye kikundi kidogo ili waweze kuubadilisha ulimwengu," nasi kupitia CGN tunatengeneza mazingira ambapo, kwa mujibu wa Mithali 27:17, "chuma hunoa chuma" na kila muumini ananolewa kiroho. Huu ni mtandao wa upendo unaothibitisha kuwa ushirika wa kweli haufungwi na kuta za jengo, bali unaishi ndani ya mioyo iliyounganishwa kwa kusudi moja la kumfuata Kristo.
+                </blockquote>
+            </section>
+
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-cyan-700 dark:text-softCyan mb-4">Misingi Mitano ya CGN: F.O.C.U.S</h2>
+                <h3 class="text-xl font-semibold mb-4 italic">Kutoka kwa Umati wa Jumapili Hadi Kuwa Jeshi la Kristo la Katikati ya Wiki</h3>
+                <p class="mb-6">Mfumo wa Church Group Network (CGN) hapo Kisesa unajengwa juu ya nguzo kuu tano zinazolenga kumfanya kila muumini kuwa thabiti. Tukitumia neno FOCUS (Kulenga), haya ndiyo malengo yetu makuu:</p>
+
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="font-bold text-lg text-teal-600 underline">F – Fellowship: Ushirika wa Kweli na Umoja (Koinonia)</h4>
+                        <p>Lengo hili ni kutengeneza umoja wa kweli. Dr. Yonggi Cho aliamini kuwa kanisa kubwa linaweza kuwa "baridi," lakini vikundi vidogo vinaleta "joto" la kifamilia. CGN inalenga kuunganisha mioyo ya washiriki ili wawe na nia moja na roho moja, wakijisikia kuwa wao ni sehemu ya familia moja, iwe wapo ana kwa ana Kisesa au kwenye WhatsApp. <br><strong>Andiko:</strong> "Tazama, jinsi ilivyo vema, na kupendeza, ndugu wakae pamoja kwa umoja!" (Zaburi 133:1)</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-teal-600 underline">O – Outreach: Uinjilisti wa Kirafiki na Upanuzi</h4>
+                        <p>Kwa Dr. Cho, vikundi vya seli ni kama seli hai za mwili ambazo lazima zigawanyike ili mwili ukue. Lengo la CGN ni kuwafikia watu mitaani na majumbani ambao hawawezi kufika kanisani moja kwa moja. Kikundi kinakuwa kivutio cha upendo kinachofanya iwe rahisi kualika marafiki na majirani kujiunga na familia ya Mungu. <br><strong>Andiko:</strong> "Na kila siku... hawakuacha kufundisha na kuhubiri habari njema za Yesu..." (Matendo 5:42)</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-teal-600 underline">C – Care: Huduma ya Kiuchungaji na Uhitaji</h4>
+                        <p>Dr. Yonggi Cho alisisitiza kuwa mchungaji mkuu hawezi kuwagusa waumini wote peke yake. CGN inagawa huduma ya kiuchungaji kwa viongozi wa vikundi. Hapa ndipo muumini anafahamika kwa jina, na mahitaji yake ya kiroho au kimwili yanashughulikiwa kwa haraka. Hakuna mtu anayeweza "kupotea" au kutelekezwa ndani ya mfumo huu. <br><strong>Andiko:</strong> "Mchukuliane mizigo na kuitimiza hivyo sheria ya Kristo." (Wagalatia 6:2)</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-teal-600 underline">U – Upbringing: Ufuatiliaji na Malezi ya Kiroho</h4>
+                        <p>Kulingana na Dr. Rick Warren, lengo hili ni kumtoa muumini kwenye hali ya kuwa "msikilizaji" tu na kumfanya kuwa "mwanafunzi" wa kweli. Kwenye kikundi kidogo, neno la Mungu halihubiriwi tu, bali linajadiliwa ili kuelewa jinsi ya kuliishi. Hili ni darasa la malezi ambapo kila mshiriki anasaidiwa kukua kuelekea ukomavu. <br><strong>Andiko:</strong> "Nanyi mkayafundishe yote niliyowaamuru nanyi..." (Mathayo 28:20)</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-teal-600 underline">S – Spiritual Gifts: Ugunduzi na Ukuaji wa Karama</h4>
+                        <p>Dr. Rick Warren anasema, "Kila muumini ni mtumishi." Lengo la CGN ni kutoa jukwaa kwa washiriki kutumia karama zao (uongozi, maombezi, au ualimu). Tofauti na ibada kuu ambapo wengi ni watazamaji, kwenye kundi dogo kila mtu anapata nafasi ya "kunolewa" na kutumika, jambo linalojenga ujasiri wa kiroho. <br><strong>Andiko:</strong> "Chuma hunoa chuma; ndivyo mtu aunoavyo uso wa rafiki yake." (Mithali 27:17)</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-cyan-700 dark:text-softCyan mb-6">Muundo wa Taarifa</h2>
+                <div class="overflow-x-auto rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
+                    <table class="w-full text-left">
+                        <thead class="bg-gray-50 dark:bg-slate-800">
+                            <tr>
+                                <th class="p-4 border-b">Ngazi</th>
+                                <th class="p-4 border-b">Mhusika</th>
+                                <th class="p-4 border-b">Jukumu la Taarifa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="p-4 border-b">Ngazi ya 1</td><td class="p-4 border-b">Mshiriki (Member)</td><td class="p-4 border-b">Kutoa taarifa za mahitaji binafsi au shukrani kwa kiongozi wa kikundi.</td></tr>
+                            <tr><td class="p-4 border-b">Ngazi ya 2</td><td class="p-4 border-b">Kiongozi wa Kikundi (CG Leader)</td><td class="p-4 border-b">Kukusanya taarifa za mahudhurio, hali za washiriki, na maombi.</td></tr>
+                            <tr><td class="p-4 border-b">Ngazi ya 3</td><td class="p-4 border-b">Mratibu wa CGN (CGN Coordinator)</td><td class="p-4 border-b">Kupokea ripoti kutoka kwa viongozi wote (Physical & Online) na kuzijumuisha.</td></tr>
+                            <tr><td class="p-4 border-b">Ngazi ya 4</td><td class="p-4 border-b">Mchungaji/Uongozi Mkuu</td><td class="p-4 border-b">Kupokea ripoti ya jumla na kutoa mwongozo wa kiroho na kimkakati.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </article>
+
+        <section class="mt-20 border-t pt-16 border-gray-200 dark:border-gray-800">
+            <h2 class="text-3xl font-bold text-center mb-8">Maswali na Majibu (Interactive Q&A)</h2>
+            <div id="quizContainer" class="space-y-4">
+                </div>
+            
+            <div id="quizResult" class="hidden mt-10 p-8 bg-cyan-50 dark:bg-slate-800 rounded-3xl text-center border-2 border-cyan-200">
+                <h3 class="text-2xl font-bold mb-2">Tathmini ya Mafunzo</h3>
+                <div id="finalScore" class="text-5xl font-black text-cyan-600 mb-4">0%</div>
+                <p id="scoreMsg" class="text-lg opacity-80"></p>
+                <button onclick="location.reload()" class="mt-6 bg-cyan-600 text-white px-8 py-3 rounded-full font-bold">Anza Upya</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-12 opacity-50 text-sm">
+        <p>© 2026 Pastot Aloyce. Mfumo wa Church Group Network (CGN).</p>
+    </footer>
+
+    <script>
+        const maswali = [
+            { q: "Nini maana ya CGN?", a: "Ni mfumo wa kikanisa unaotumia vikundi vidogo vidogo vilivyounganishwa kama seli hai za mwili." },
+            { q: "Nini maana ya neno 'Church' katika mfumo huu?", a: "Inamaanisha kuwa sisi ni mwili wa Kristo ambapo kila kiungo kina umuhimu (1 Wakorintho 12:27)." },
+            { q: "Mikutano ya Online hufanyika saa ngapi?", a: "Hufanyika saa 3:00 usiku." },
+            { q: "Nini kirefu cha FOCUS?", a: "Fellowship, Outreach, Care, Upbringing, Spiritual Gifts." },
+            { q: "Nani aliamini kuwa kanisa kubwa linaweza kuwa 'baridi' lakini vikundi vidogo vinaleta 'joto'?", a: "Dr. Yonggi Cho." },
+            { q: "Jukumu la mshiriki (Ngazi ya 1) ni nini?", a: "Kutoa taarifa za mahitaji binafsi au shukrani kwa kiongozi wa kikundi." },
+            { q: "Andiko gani linasema 'chuma hunoa chuma'?", a: "Mithali 27:17." },
+            { q: "Kiongozi wa Kikundi (CG Leader) yuko ngazi ya ngapi?", a: "Ngazi ya 2." },
+            { q: "Mratibu wa CGN ana jukumu gani?", a: "Kupokea ripoti kutoka kwa viongozi wote na kuzijumuisha." },
+            { q: "Andiko la mchukuliane mizigo ni gani?", a: "Wagalatia 6:2." }
+        ];
+
+        let answered = 0;
+
+        function createQuiz() {
+            const container = document.getElementById('quizContainer');
+            maswali.forEach((m, i) => {
+                const div = document.createElement('div');
+                div.id = `card-${i}`;
+                div.className = `p-6 bg-white dark:bg-slateDark rounded-2xl border border-gray-200 dark:border-gray-700 transition-all ${i === 0 ? '' : 'opacity-40 pointer-events-none scale-95'}`;
+                div.innerHTML = `
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-cyan-100 dark:bg-cyan-900 text-cyan-700 dark:text-cyan-200 text-xs font-bold px-2 py-1 rounded">SWALI ${i+1}</span>
+                        <span id="label-${i}" class="text-xs opacity-50 italic">Subiri...</span>
+                    </div>
+                    <p class="font-bold text-lg mb-4">${m.q}</p>
+                    <button id="btn-${i}" onclick="reveal(${i})" class="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-lg text-sm transition">Onyesha Jibu</button>
+                    <div id="ans-${i}" class="faq-answer text-teal-600 dark:text-softCyan mt-4 pt-4 border-t border-gray-100 dark:border-gray-800">
+                        <strong>Jibu la Mwalimu:</strong> ${m.a}
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function reveal(index) {
+            const ans = document.getElementById(`ans-${index}`);
+            const card = document.getElementById(`card-${index}`);
+            const label = document.getElementById(`label-${index}`);
+            const btn = document.getElementById(`btn-${index}`);
+
+            if(!ans.classList.contains('open')) {
+                ans.classList.add('open');
+                label.innerText = "Imekamilika";
+                label.classList.add('text-green-500');
+                btn.style.display = 'none';
+                answered++;
+
+                if(index + 1 < maswali.length) {
+                    const next = document.getElementById(`card-${index + 1}`);
+                    next.classList.remove('opacity-40', 'pointer-events-none', 'scale-95');
+                } else {
+                    finishQuiz();
+                }
+            }
+        }
+
+        function finishQuiz() {
+            const res = document.getElementById('quizResult');
+            res.classList.remove('hidden');
+            document.getElementById('finalScore').innerText = "100%";
+            document.getElementById('scoreMsg').innerText = "Hongera! Umejifunza misingi yote ya CGN.";
+            res.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        window.onscroll = () => {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            document.getElementById("readingBar").style.width = (winScroll / height) * 100 + "%";
+        };
+
+        document.getElementById('darkModeBtn').onclick = () => document.documentElement.classList.toggle('dark');
+        
+        document.getElementById('fontPicker').onchange = (e) => {
+            const container = document.getElementById('articleContainer');
+            container.classList.remove('font-sans', 'font-serif', 'font-times', 'font-mono');
+            container.classList.add(e.target.value);
+        };
+
+        let fSize = 1.125;
+        function changeTextSize(n) {
+            fSize += n * 0.1;
+            document.getElementById('articleContainer').style.fontSize = fSize + 'rem';
+        }
+
+        createQuiz();
+    </script>
+</body>
+</html>
