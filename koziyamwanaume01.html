@@ -1,231 +1,252 @@
-
 <!DOCTYPE html>
 <html lang="sw">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kozi ya Mwanaume - Pastor Aloyce</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Masomo | Pastor Aloyce</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        /* --- 1. MISINGI NA RANGI --- */
         :root {
-            --primary-orange: #FF8C00;
-            --dark-gray: #1a1c1e;
-            --light-bg: #f4f4f9;
-            --white: #ffffff;
-            --text-muted: #666;
+            --blue-dark: #1e3a8a;
+            --blue-light: #0056b3;
+            --orange-main: #f97316;
+            --orange-hover: #ea580c;
+            --nyeupe: #ffffff;
+            --kijivu-light: #f1f3f5;
+            --text-gray: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--light-bg);
-            margin: 0;
-            color: #333;
-            line-height: 1.6;
+            background-color: var(--kijivu-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
         }
 
-        /* --- 2. HEADER SECTION --- */
-        .course-header {
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-                        url('https://images.unsplash.com/photo-1491333078588-55b6733c7de6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            padding: 100px 20px;
+        /* --- KICHWA CHA HABARI --- */
+        .section-title {
             text-align: center;
-            color: white;
+            margin-bottom: 50px;
         }
 
-        .course-header h1 {
-            font-size: 2.5rem;
-            margin: 0;
-            color: var(--primary-orange);
-            letter-spacing: 1px;
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--blue-dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .course-header p {
-            max-width: 700px;
-            margin: 15px auto;
-            font-size: 1.1rem;
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--orange-main);
+            border-radius: 2px;
         }
 
-        /* --- 3. CONTAINER NA KADI ZA MODULI --- */
-        .container {
-            max-width: 800px;
-            margin: -50px auto 60px;
-            padding: 0 20px;
+        .section-title p {
+            color: var(--text-gray);
+            margin-top: 10px;
+            font-weight: 500;
         }
 
-        .module-card {
-            background: var(--white);
-            margin-bottom: 20px;
+        /* --- KONTENA LA KADI --- */
+        .courses-container {
+            width: 100%;
+            max-width: 550px;
+        }
+
+        .course-card {
+            background: var(--nyeupe);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(30, 58, 138, 0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue-light));
+            padding: 40px;
+            text-align: center;
+            border-bottom: 6px solid var(--orange-main);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .icon-box {
+            font-size: 3.5rem;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+        }
+
+        .course-info {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .course-info h4 {
+            color: var(--orange-main);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .course-info h3 {
+            color: var(--blue-dark);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .course-info p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        /* --- KITUFE NA DROPDOWN --- */
+        .btn-view-modules {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background-color: var(--blue-dark);
+            color: white;
+            text-align: center;
+            text-decoration: none;
             border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            font-weight: 600;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-view-modules:hover {
+            background-color: var(--nyeupe);
+            color: var(--blue-dark);
+            border: 2px solid var(--blue-dark);
+        }
+
+        .modules-list {
+            display: none;
+            background: #f8fafc;
+            margin-top: 20px;
+            border-radius: 15px;
+            text-align: left;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .module-item {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            border-left: 6px solid var(--primary-orange);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .module-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .module-info {
-            flex: 1;
-            padding-right: 20px;
-        }
-
-        .module-info h3 {
-            margin: 0 0 8px 0;
-            font-size: 1.2rem;
-            color: var(--dark-gray);
-        }
-
-        .module-info p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-        }
-
-        /* --- 4. VITUFA (BUTTONS) --- */
-        .btn-link {
-            background-color: var(--primary-orange);
-            color: white !important;
+            padding: 15px 20px;
+            color: var(--blue-dark);
             text-decoration: none;
-            padding: 12px 22px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: background 0.3s ease;
-            white-space: nowrap;
+            font-size: 0.92rem;
+            border-bottom: 1px solid #e2e8f0;
+            transition: 0.3s;
+            line-height: 1.4;
         }
 
-        .btn-link:hover {
-            background-color: #e67e00;
+        .module-item:last-child {
+            border-bottom: none;
         }
 
-        /* --- 5. SEHEMU MAALUM (WITO NA MAZOEZI) --- */
-        .special-section {
-            background-color: var(--dark-gray);
-            color: white;
+        .module-item span {
+            margin-right: 15px;
+            font-size: 1.2rem;
+            background: var(--nyeupe);
+            padding: 8px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        .special-section h3 {
-            color: var(--primary-orange) !important;
+        .module-item:hover {
+            background-color: var(--orange-main);
+            color: var(--nyeupe);
+            padding-left: 25px;
         }
 
-        .exercise-section {
-            border-left-color: #333; 
-            background-color: #fffde7;
-        }
-
-        /* --- 6. RESPONSIVENESS (SIMU) --- */
-        @media (max-width: 600px) {
-            .module-card {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .module-info {
-                padding-right: 0;
-                margin-bottom: 20px;
-            }
-
-            .course-header h1 {
-                font-size: 1.8rem;
-            }
+        @media (max-width: 480px) {
+            .section-title h2 { font-size: 1.6rem; }
+            .course-info h3 { font-size: 1.3rem; }
         }
     </style>
 </head>
 <body>
 
-    <header class="course-header">
-        <h1>KOZI YA KWANZA</h1>
-        <h1>MWANAUME ANAYEJITATHMINI</h1>
-        <p>"Enyi waume, wapendeni wake zenu, kama Kristo naye alivyolipenda Kanisa, akajitoa kwa ajili yake." (Waefeso 5:25)</p>
-        <p><strong>Pastor Aloyce</strong></p>
-    </header>
-
-    <div class="container">
-
-        <div class="module-card">
-            <div class="module-info">
-                <h3>Utangulizi wa Kozi</h3>
-                <p>Anza safari yako hapa kupata maono ya jumla.</p>
-            </div>
-            <a href="https://pastoraloyce.github.io/utangulizi-wa-kozi-ya-wanaume./" target="_blank" class="btn-link">
-                Fungua Somo <i class="fas fa-external-link-alt"></i>
-            </a>
-        </div>
-
-        <div class="module-card">
-            <div class="module-info">
-                <h3>Moduli ya Kwanza</h3>
-                <p>Mambo ya kufanya kwa mke na familia ili kuongeza heshima.</p>
-            </div>
-            <a href="https://pastoraloyce.github.io/moduli-ya-kwanza-kozi-ya-mwanaume/" target="_blank" class="btn-link">
-                Fungua Somo <i class="fas fa-external-link-alt"></i>
-            </a>
-        </div>
-
-        <div class="module-card">
-            <div class="module-info">
-                <h3>Moduli ya Pili</h3>
-                <p>Viashiria vya kujua kama mkeo anakutii.</p>
-            </div>
-            <a href="https://aloyce0202-cpu.github.io/moduli-ya-pili/" target="_blank" class="btn-link">
-                Fungua Somo <i class="fas fa-external-link-alt"></i>
-            </a>
-        </div>
-
-        <div class="module-card">
-            <div class="module-info">
-                <h3>Moduli ya Tatu</h3>
-                <p>Maeneo makuu ya kupima utii wa mwanamke.</p>
-            </div>
-            <a href="https://aloyce0202-cpu.github.io/moduli-ya-tatu/" target="_blank" class="btn-link">
-                Fungua Somo <i class="fas fa-external-link-alt"></i>
-            </a>
-        </div>
-
-        <div class="module-card">
-            <div class="module-info">
-                <h3>Moduli ya Nne</h3>
-                <p>Kuishi na mwanamke mwenye nguvu kiuchumi na elimu.</p>
-            </div>
-            <a href="https://pastoraloyce.github.io/modulim-ya-nne/" target="_blank" class="btn-link">
-                Fungua Somo <i class="fas fa-external-link-alt"></i>
-            </a>
-        </div>
-
-        <div class="module-card special-section">
-            <div class="module-info">
-                <h3>Wito Mkuu kwa Wanaume</h3>
-                <p>Mwisho wa kozi na neno la busara kwa mashujaa.</p>
-            </div>
-            <a href="https://aloyce0202-cpu.github.io/Wito-Mkuu-wa-Mwanaumempya/" target="_blank" class="btn-link">
-                Soma Wito <i class="fas fa-crown"></i>
-            </a>
-        </div>
-
-        <div class="module-card exercise-section">
-            <div class="module-info">
-                <h3>Mazoezi ya Moduli Zote</h3>
-                <p>Pima uelewa wako na anza kufanyia kazi ulichojifunza.</p>
-            </div>
-            <a href="https://aloyce0202-cpu.github.io/juhu/" target="_blank" class="btn-link" style="background-color: #333;">
-                Anza Zoezi <i class="fas fa-pen-nib"></i>
-            </a>
-        </div>
-
+    <div class="section-title">
+        <h2>Karibu Kwenye Kozi</h2>
+        <p>Na Pastor Aloyce</p>
+        <p>📞 +255 757 344 860</p>
     </div>
+
+    <div class="courses-container">
+        <div class="course-card">
+            <div class="card-header">
+                <div class="icon-box">👨‍💼</div>
+                <div class="icon-box">💎</div>
+            </div>
+            
+            <div class="course-info">
+                <h4>Kozi ya Kwanza</h4>
+                <h3>MWANAUME ANAYEJITATHMINI</h3>
+                <p>Kozi hii si kwa ajili ya kukosoa mapungufu yako, bali ni kwa ajili ya kuchonga uimara wako na kugundua mwanaume halisi ndani yako nje ya majukumu ya kila siku.</p>
+
+                <button class="btn-view-modules" onclick="toggleModules()">
+                    🔍 Fungua Moduli za Mafunzo (07)
+                </button>
+
+                <div class="modules-list" id="modulesMenu">
+                    <a href="#" class="module-item"><span>🚀</span> Utangulizi: Mwongozo na Malengo ya Kozi</a>
+                    <a href="#" class="module-item"><span>❤️</span> Moduli 01: Siri ya kuongeza heshima kwa mke na familia.</a>
+                    <a href="#" class="module-item"><span>⚖️</span> Moduli 02: Viashiria vya utii wa kweli kutoka kwa mke.</a>
+                    <a href="#" class="module-item"><span>📏</span> Moduli 03: Vipimo vikuu vya kupima utii wa mwanamke.</a>
+                    <a href="#" class="module-item"><span>🎓</span> Moduli 05: Kuishi na mwanamke mwenye nguvu (Elimu & Uchumi).</a>
+                    <a href="#" class="module-item"><span>📣</span> Moduli 06: Wito Mkuu na Majukumu ya Mwanaume wa Shoka.</a>
+                    <a href="#" class="module-item"><span>📝</span> Moduli 07: Hitimisho na Mazoezi ya Vitendo.</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleModules() {
+            var menu = document.getElementById("modulesMenu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+    </script>
 
 </body>
 </html>
