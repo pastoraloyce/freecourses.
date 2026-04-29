@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disciples Online Radio | Sauti ya Injili</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-orange: #FF8C00;
+            --primary-blue: #003366;
+            --accent-blue: #00509d;
+            --white: #ffffff;
+            --light-gray: #f4f7f6;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--primary-blue);
+        }
+
+        /* --- Header & Menu (Zilizorudishwa) --- */
+        header {
+            background: var(--primary-blue);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--primary-orange);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .logo h1 {
+            color: var(--white);
+            font-size: 1.2rem;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .logo span { color: var(--primary-orange); }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-orange);
+        }
+
+        /* --- Hero & Player Section --- */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #001a33 100%);
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 5px;
+        }
+
+        .slogan {
+            color: var(--primary-orange);
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        /* --- Radio Card (Waves Effect) --- */
+        .radio-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            border-radius: 30px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+
+        .live-badge {
+            background: #ff0000;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        .wave-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 40px;
+            gap: 4px;
+            margin-bottom: 25px;
+        }
+
+        .wave-bar {
+            width: 5px;
+            background: var(--primary-orange);
+            border-radius: 3px;
+            animation: quiet 1.2s ease-in-out infinite alternate;
+        }
+        /* Tofauti za urefu wa waves */
+        .wave-bar:nth-child(2) { animation-duration: 1.5s; height: 30px; }
+        .wave-bar:nth-child(3) { animation-duration: 1.1s; height: 40px; }
+        .wave-bar:nth-child(4) { animation-duration: 1.3s; height: 25px; }
+
+        @keyframes quiet {
+            0% { height: 10px; }
+            100% { height: 40px; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* --- Donation Section --- */
+        .donate-box {
+            padding: 80px 5%;
+            background: var(--light-gray);
+            text-align: center;
+        }
+
+        .m-pesa-card {
+            background: var(--white);
+            border: 1px solid #ddd;
+            border-top: 8px solid var(--primary-orange);
+            display: inline-block;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            margin-top: 30px;
+        }
+
+        .btn-action {
+            background: var(--primary-orange);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            margin-top: 25px;
+        }
+
+        .btn-action:hover {
+            background: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary-blue);
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+            border-top: 5px solid var(--primary-orange);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            nav ul {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav ul li a {
+                font-size: 0.75rem;
+            }
+            .main-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>Disciples <span>Online Radio</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#live">Sikiliza Live</a></li>
+                <li><a href="#donate">Toa Sadaka</a></li>
+                <li><a href="#contact">Mawasiliano</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section" id="home">
+        <h2 class="main-title">Disciples Online Radio</h2>
+        <p class="slogan">Sauti ya Injili kwa Mataifa</p>
+        <p class="slogan">Na Pastor Aloyce</p>
+
+        <div class="radio-card" id="live">
+            <div class="live-badge">
+                <i class="fas fa-broadcast-tower"></i> LIVE MUBASHARA
+            </div>
+            
+            <div class="wave-container">
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+            </div>
+
+            <h3 style="margin-bottom: 20px; font-weight: 400;">Sikiliza Sasa</h3>
+            
+            <div style="background: white; padding: 20px; border-radius: 15px; display: inline-block; width: 100%;">
+                <script type="text/javascript" src="//cdn.voscast.com/player/?key=cec28ac2ff25469142c462fa8bde076e"></script>
+            </div>
+            
+            <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.9;">Barikiwa na neno la Mungu na nyimbo za sifa.</p>
+        </div>
+    </section>
+
+    <section class="donate-box" id="donate">
+        <h2 style="color: var(--primary-blue); font-family: 'Montserrat', sans-serif;">Saidia Huduma Hii</h2>
+        <p>Ungana nasi katika kupeleka injili kwa mataifa yote kupitia sadaka yako.</p>
+        
+        <div class="m-pesa-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/M-PESA_logo.png/640px-M-PESA_logo.png" alt="M-pesa" width="100">
+            <h2 style="margin: 15px 0; font-size: 2rem; color: #333;">0757 344 860</h2>
+            <p>Jina: <strong>Aloyce</strong></p>
+            <button class="btn-action">Karibu kwa Sadaka yako</button>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div style="margin-bottom: 25px;">
+            <p style="margin-bottom: 15px;">Tufuate kwenye mitandao ya kijamii:</p>
+            <a href="https://wa.me/255757344860" style="color: #25d366; font-size: 2rem; margin: 0 15px;"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" style="color: #ffffff; font-size: 2rem; margin: 0 15px;"><i class="fab fa-facebook"></i></a>
+            <a href="#" style="color: #ff0000; font-size: 2rem; margin: 0 15px;"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>© 2026 Disciples Online Radio</p>
+        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">"Kueneza Injili kwa njia ya sauti duniani kote"</p>
+         <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">Pastor Aloyce   |  +255 757 344 860</p>
+    </footer>
+
+</body>
+</html>
